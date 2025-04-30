@@ -1,6 +1,7 @@
 import 'dart:io';
 
 // import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import '../shared/notif/local_notification.dart';
@@ -10,9 +11,9 @@ import '../shared/notif/local_notification.dart';
 class FirebaseTraits {
   Future<void> init() async {
     /// Initialize Firebase
-    // await Firebase.initializeApp(
-    //   options: DefaultFirebaseOptions.currentPlatform,
-    // );
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
 
     // Set the background messaging handler early on, as a named top-level function
     FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);

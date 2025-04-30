@@ -14,7 +14,7 @@ class ApiProvider {
   String url = '${Env.value.baseUrl}/api/';
   var client = http.Client();
   int timeOut = 120;
-  final localSession = services.get<LocalSession>();
+  final localSession = inject.get<LocalSession>();
 
   Future<ResponseModel> postApi(
     String urlPrefix, {
@@ -65,7 +65,10 @@ class ApiProvider {
           msg: 'Unauthorized',
         );
       }
-      String msg = jsonDecode(response.body)['message'] ?? 'Server Error';
+      String msg =
+          jsonDecode(response.body)['error_message'] ??
+          ['message'] ??
+          'Server Error';
       return ResponseModel(isError: true, result: response, msg: msg);
     } on TimeoutException {
       throw 'Connection Timeout, please check your connection';
@@ -136,7 +139,10 @@ class ApiProvider {
           msg: 'Unauthorized',
         );
       }
-      String msg = jsonDecode(response.body)['message'] ?? 'Server Error';
+      String msg =
+          jsonDecode(response.body)['error_message'] ??
+          ['message'] ??
+          'Server Error';
       return ResponseModel(isError: true, result: response, msg: msg);
     } on TimeoutException {
       throw 'Connection Timeout, please check your connection';
@@ -197,7 +203,10 @@ class ApiProvider {
           msg: 'Unauthorized',
         );
       }
-      String msg = jsonDecode(response.body)['message'] ?? 'Server Error';
+      String msg =
+          jsonDecode(response.body)['error_message'] ??
+          ['message'] ??
+          'Server Error';
       return ResponseModel(isError: true, result: response, msg: msg);
     } on TimeoutException {
       throw 'Connection Timeout, please check your connection';
@@ -258,7 +267,10 @@ class ApiProvider {
           msg: 'Unauthorized',
         );
       }
-      String msg = jsonDecode(response.body)['message'] ?? 'Server Error';
+      String msg =
+          jsonDecode(response.body)['error_message'] ??
+          ['message'] ??
+          'Server Error';
       return ResponseModel(isError: true, result: response, msg: msg);
     } on TimeoutException {
       throw 'Connection Timeout, please check your connection';
@@ -304,7 +316,7 @@ class ApiProvider {
   //     return ResponseModel(
   //       isError: true,
   //       result: response,
-  //       msg: jsonDecode(response.bodyString ?? '''{}''')['message'] ??
+  //       msg: jsonDecode(response.bodyString ?? '''{}''')['error_message'] ?? ['message'] ??
   //           'Server Error',
   //     );
   //   } on TimeoutException {

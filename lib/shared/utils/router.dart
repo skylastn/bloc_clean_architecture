@@ -1,7 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
-import '../../feature/auth/presentation/splash_page/splash_page.dart';
+import '../../feature/auth/presentation/login/login_page.dart';
+import '../../feature/auth/presentation/splash/splash_page.dart';
 
 final router = GoRouter(
   initialLocation: SplashPage.routeName,
@@ -12,6 +13,11 @@ final router = GoRouter(
       path: SplashPage.routeName,
       name: SplashPage.routeName,
       builder: (context, state) => const SplashPage(),
+    ),
+    GoRoute(
+      path: LoginPage.routeName,
+      name: LoginPage.routeName,
+      builder: (context, state) => const LoginPage(),
     ),
     // GoRoute(
     //   path: OnboardingPage.routeName,
