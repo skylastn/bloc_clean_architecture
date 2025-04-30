@@ -4,7 +4,7 @@ project(kiosk_bo LANGUAGES CXX)
 
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
-set(BINARY_NAME "kiosk_bo")
+set(BINARY_NAME "Opet_Order")
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent
 # versions of CMake.

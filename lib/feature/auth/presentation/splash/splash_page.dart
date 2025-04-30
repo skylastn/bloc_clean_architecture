@@ -18,7 +18,7 @@ class _SplashPageState extends State<SplashPage> {
   final _authLogic = inject.get<AuthLogic>();
 
   @override
-  void initState() async {
+  void initState() {
     init();
     super.initState();
   }
@@ -26,7 +26,7 @@ class _SplashPageState extends State<SplashPage> {
   Future<void> init() async {
     bool result = await _authLogic.checkAuth();
     if (!result) {
-      inject.get<GoRouter>().pushNamed(LoginPage.routeName);
+      inject.get<GoRouter>().pushReplacementNamed(LoginPage.routeName);
       return;
     }
     // inject.get<GoRouter>().pushNamed(name)

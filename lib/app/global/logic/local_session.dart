@@ -73,7 +73,7 @@ class LocalSession {
       }
       NotificationSettings settings =
           await FirebaseMessaging.instance.requestPermission();
-      log(settings.authorizationStatus.name);
+      log('notification : ${settings.authorizationStatus.name}');
 
       String temp = pref.getString('fcmToken') ?? '';
       if (temp.isEmpty) {

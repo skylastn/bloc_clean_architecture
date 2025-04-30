@@ -66,16 +66,10 @@ class Env {
         ),
       );
     }
-    try {
-      await LocalNotification().init();
-      await FirebaseTraits().init();
-
-      await DenpendencyInjection.init();
-      DenpendencyInjection.registerDependencies();
-    } catch (e) {
-      log('error bro : $e');
-    }
-
+    await FirebaseTraits().init();
+    await LocalNotification().init();
+    await DenpendencyInjection.init();
+    DenpendencyInjection.registerDependencies();
     // await initializeDateFormatting('id_ID', null);
     // await CapabilityProfile.ensureProfileLoaded(); //printer
     HttpOverrides.global = MyHttpOverrides();

@@ -1,4 +1,4 @@
-package com.example.kiosk_bo
+package com.company.opet.order
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -18,7 +18,7 @@ class AuthStateAuthenticated extends AuthState {
 
 class AuthLogic extends Cubit<AuthState> {
   final localLogic = inject.get<LocalSession>();
-  final _services = inject.get<AuthService>();
+  final _services = AuthService();
   AuthLogic(super.initialState);
 
   Future<Either<String?, bool>> login(AuthRequest request) async {

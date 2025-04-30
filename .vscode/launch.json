@@ -1,0 +1,70 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "DEV",
+      "request": "launch",
+      "type": "dart",
+      "program": "${workspaceFolder}/lib/main.dart",
+      "flutterMode": "debug",
+      "preLaunchTask": "replace-env-development",
+      "args": [
+        "--flavor",
+        "development",
+        "--dart-define",
+        "FLAVOR=development"
+      ]
+    },
+    {
+      "name": "PROD",
+      "request": "launch",
+      "type": "dart",
+      "program": "${workspaceFolder}/lib/main.dart",
+      "flutterMode": "debug",
+      "preLaunchTask": "replace-env-production",
+      "args": [
+        "--flavor",
+        "production",
+        "--dart-define",
+        "FLAVOR=production"
+      ]
+    },
+    {
+      "name": "Web DEV",
+      "request": "launch",
+      "type": "dart",
+      "program": "${workspaceFolder}/lib/main.dart",
+      "flutterMode": "debug",
+      "preLaunchTask": "replace-env-development",
+      "args": [
+        "--web-port",
+        "12000"
+      ],
+    },
+    {
+      "name": "Web PROD",
+      "request": "launch",
+      "type": "dart",
+      "program": "${workspaceFolder}/lib/main.dart",
+      "flutterMode": "debug",
+      "preLaunchTask": "replace-env-production",
+      "args": [
+        "--web-port",
+        "13000"
+      ]
+    },
+    {
+      "name": "Web (WASM)",
+      "request": "launch",
+      "type": "dart",
+      "program": "${workspaceFolder}/lib/main.dart",
+      "flutterMode": "debug",
+      "preLaunchTask": "replace-env-development",
+      "args": [
+        "-d",
+        "chrome",
+        "--wasm"
+      ]
+    }
+  ]
+}

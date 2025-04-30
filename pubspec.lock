@@ -408,6 +408,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.1.1"
+  logger:
+    dependency: transitive
+    description:
+      name: logger
+      sha256: be4b23575aac7ebf01f225a241eb7f6b5641eeaf43c6a8613510fc2f8cf187d1
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.5.0"
   logging:
     dependency: transitive
     description:
@@ -464,6 +472,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.0"
+  package_rename:
+    dependency: "direct dev"
+    description:
+      name: package_rename
+      sha256: "5dbef9f2f0849a7b5d237733a898bcdab917e5b7e16d662e91e095b6278d9af9"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.10.0"
   path:
     dependency: transitive
     description:
