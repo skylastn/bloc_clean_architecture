@@ -1,7 +1,7 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'core/env.dart';
 import 'package:get_it/get_it.dart';
-final services = GetIt.instance;
+final inject = GetIt.instance;
 Future<void> main() async {
   await dotenv.load(fileName: ".env");
   Main();

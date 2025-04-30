@@ -2,7 +2,7 @@ import 'package:kiosk_bo/app/global/logic/local_session.dart';
 import 'package:kiosk_bo/main.dart';
 
 class GlobalLogic {
-  LocalSession localCtrl = services.get<LocalSession>();
+  LocalSession localCtrl = inject.get<LocalSession>();
   String fcmToken = '';
 
   GlobalLogic() {

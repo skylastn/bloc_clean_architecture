@@ -19,7 +19,7 @@ class LocalNotification {
           if (kDebugMode) {
             print('Firebase Token : $value');
           }
-          services.get<LocalSession>().setDeviceToken(value ?? '');
+          inject.get<LocalSession>().setDeviceToken(value ?? '');
         });
     await AwesomeNotifications().initialize(
       // set the icon to null if you want to use the default app icon
@@ -104,20 +104,20 @@ class LocalNotification {
     var content = NotificationResponse.fromMap(value.data);
     switch (content.type) {
       case NotificationResponseType.order:
-        // if (services.isRegistered<TrackingOrderCubit>()) {
-        //   services.get<TrackingOrderCubit>().fetchOrder();
+        // if (inject.isRegistered<TrackingOrderCubit>()) {
+        //   inject.get<TrackingOrderCubit>().fetchOrder();
         // }
         break;
       case NotificationResponseType.transaction:
         if (content.status == NotificationResponseStatus.paid) {
-          // services<GoRouter>().pushNamed(
+          // inject<GoRouter>().pushNamed(
           //   TrackingOrderPage.routeName,
           //   queryParameters: {
           //     'code': content.code,
           //   },
           // );
-          // services.get<CartBloc>().add(CartResetEvent());
-          // services.get<CartCubit>().resetCart();
+          // inject.get<CartBloc>().add(CartResetEvent());
+          // inject.get<CartCubit>().resetCart();
         }
         break;
       default:
@@ -125,17 +125,17 @@ class LocalNotification {
   }
 
   void initSubscribtionToTopic() {
-    if (!kIsWeb && (services.get<LocalSession>().userId ?? '').isNotEmpty) {
+    if (!kIsWeb && (inject.get<LocalSession>().userId ?? '').isNotEmpty) {
       FirebaseMessaging.instance.subscribeToTopic(
-        services.get<LocalSession>().userId!,
+        inject.get<LocalSession>().userId!,
       );
     }
   }
 
   void unSubscribeTopic() {
-    if (!kIsWeb && (services.get<LocalSession>().userId ?? '').isNotEmpty) {
+    if (!kIsWeb && (inject.get<LocalSession>().userId ?? '').isNotEmpty) {
       FirebaseMessaging.instance.unsubscribeFromTopic(
-        services.get<LocalSession>().userId!,
+        inject.get<LocalSession>().userId!,
       );
     }
   }
