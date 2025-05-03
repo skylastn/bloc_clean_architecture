@@ -6,6 +6,7 @@ import 'package:kiosk_bo/feature/auth/infrastructure/model/request/auth_request.
 
 import 'package:kiosk_bo/feature/auth/infrastructure/model/response/auth_response.dart';
 import 'package:kiosk_bo/feature/auth/infrastructure/model/response/user_response.dart';
+import 'package:kiosk_bo/feature/core/infrastructure/model/response/navigation_response.dart';
 
 import '../../domain/interface/auth_repository_base.dart';
 import '../data_source/auth_remote_data_source.dart';
@@ -24,5 +25,11 @@ class AuthRepository implements AuthRepositoryBase {
   @override
   Future<Either<GenericException, UserResponse>> getUserProfile() async {
     return await AuthRemoteDataSource().getUserProfile();
+  }
+
+  @override
+  Future<Either<GenericException, List<NavigationResponse>>>
+  getNavigationUser() async {
+    return await AuthRemoteDataSource().getNavigationUser();
   }
 }

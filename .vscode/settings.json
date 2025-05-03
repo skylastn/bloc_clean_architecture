@@ -11,7 +11,9 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[dart]": { "editor.defaultFormatter": "Dart-Code.dart-code" },
+  "[dart]": {
+    "editor.defaultFormatter": "Dart-Code.dart-code"
+  },
   "editor.formatOnSave": true,
   "java.configuration.updateBuildConfiguration": "interactive",
   "cmake.ignoreCMakeListsMissing": true,

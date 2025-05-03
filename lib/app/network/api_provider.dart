@@ -48,7 +48,7 @@ class ApiProvider {
       }
 
       if (kDebugMode) {
-        log('response : ${response.body}');
+        log('response -> $urlPrefix : ${(response.body)}');
         log('statuscode : ${response.statusCode}');
       }
       if (NetworkStatusModel.isStatusOkay(response.statusCode)) {
@@ -122,7 +122,7 @@ class ApiProvider {
       }
 
       if (kDebugMode) {
-        log('response : ${response.body}');
+        log('response -> $urlPrefix : ${response.body}');
         log('statuscode : ${response.statusCode}');
       }
       if (NetworkStatusModel.isStatusOkay(response.statusCode)) {
@@ -186,7 +186,7 @@ class ApiProvider {
       }
 
       if (kDebugMode) {
-        log('response : ${response.body}');
+        log('response -> $urlPrefix : ${response.body}');
         log('statuscode : ${response.statusCode}');
       }
       if (NetworkStatusModel.isStatusOkay(response.statusCode)) {
@@ -250,7 +250,7 @@ class ApiProvider {
       }
 
       if (kDebugMode) {
-        log('response : ${response.body}');
+        log('response -> $urlPrefix : ${response.body}');
         log('statuscode : ${response.statusCode}');
       }
       if (NetworkStatusModel.isStatusOkay(response.statusCode)) {
@@ -296,7 +296,7 @@ class ApiProvider {
   //       headers: (header) ? await headerImage() : headerNormal(),
   //     );
   //     if (kDebugMode) {
-  //       log('response : ${response.bodyString}');
+  //       log('response -> $urlPrefix : ${response.bodyString}');
   //       log('statuscode : ${response.statusCode}');
   //     }
   //     if (response.isOk) {
@@ -329,9 +329,9 @@ class ApiProvider {
   //   }
   // }
 
-  headerLogin() {
+  Future<Map<String, String>?> headerLogin() async {
     return {
-      'Authorization': 'Bearer ${localSession.token}',
+      'Authorization': 'Bearer ${(await localSession.tokenModel)?.token}',
       'Content-Type': 'application/json',
       'Accept': 'application/json',
     };
@@ -349,17 +349,17 @@ class ApiProvider {
     };
   }
 
-  headerImage() {
+  headerImage() async {
     return {
-      'Authorization': 'Bearer ${localSession.token}',
+      'Authorization': 'Bearer ${(await localSession.tokenModel)?.token}',
       // 'Content-Type': 'application/json',
       // 'Accept': 'application/json',
     };
   }
 
-  Map<String, String>? headerCheck({int choice = 0}) {
+  Future<Map<String, String>?> headerCheck({int choice = 0}) async {
     if (choice == 1) {
-      return headerLogin();
+      return await headerLogin();
     }
     if (choice == 2) {
       return headerFCM();

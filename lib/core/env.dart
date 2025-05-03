@@ -55,7 +55,7 @@ class Env {
   Future<void> initAllPackage() async {
     WidgetsFlutterBinding.ensureInitialized();
     inject.registerLazySingleton<LocalSession>(() => LocalSession());
-    await inject.get<LocalSession>().initLocalDatabase();
+    inject.get<LocalSession>().initLocalDatabase();
     if (!kIsWeb) {
       /// Set status bar icon color
       SystemChrome.setSystemUIOverlayStyle(

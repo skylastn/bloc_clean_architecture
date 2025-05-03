@@ -39,4 +39,24 @@ class Navigation {
       queryParameters: routeModel?.params ?? {},
     );
   }
+
+  static Future<void> pushNamed(
+    String routePath, {
+    Map<String, String>? params,
+  }) async {
+    await inject<GoRouter>().pushNamed(
+      routePath,
+      queryParameters: params ?? {},
+    );
+  }
+
+  static Future<void> pushReplacementNamed(
+    String routePath, {
+    Map<String, String>? params,
+  }) async {
+    await inject<GoRouter>().pushReplacementNamed(
+      routePath,
+      queryParameters: params ?? {},
+    );
+  }
 }

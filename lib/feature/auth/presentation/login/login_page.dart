@@ -1,8 +1,33 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:kiosk_bo/feature/auth/presentation/login/login_logic.dart';
+import 'package:lottie/lottie.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
   static const String routeName = '/login';
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final LoginLogic logic = LoginLogic();
+
+  @override
+  void dispose() {
+    logic.dispose();
+    super.dispose();
+  }
+
+  @override
+  void initState() {
+    if (kDebugMode) {
+      logic.usernameController.text = 'admin@email.com';
+      logic.passwordController.text = 'admin123';
+    }
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,32 +44,20 @@ class LoginPage extends StatelessWidget {
           ),
           child: Row(
             children: [
-              // Bagian kiri (gambar)
               Expanded(
                 child: Container(
                   decoration: const BoxDecoration(
-                    color: Colors.white,
+                    color: Color(0xFFf3f3f3),
                     borderRadius: BorderRadius.horizontal(
                       left: Radius.circular(12),
                     ),
                   ),
                   child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        // Image.asset('assets/food_placeholder.png', height: 120),
-                        const SizedBox(height: 12),
-                        const Text(
-                          "Food & Drink",
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                      ],
-                    ),
+                    child: Lottie.asset('assets/animation/LoginAnimation.json'),
                   ),
                 ),
               ),
 
-              // Bagian kanan (form login)
               Expanded(
                 child: Container(
                   padding: const EdgeInsets.all(24),
@@ -68,10 +81,11 @@ class LoginPage extends StatelessWidget {
                       ),
                       const SizedBox(height: 20),
                       TextField(
+                        controller: logic.usernameController,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.white,
-                          hintText: 'admin@email.com',
+                          hintText: 'username',
                           prefixIcon: const Icon(Icons.person),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
@@ -85,13 +99,24 @@ class LoginPage extends StatelessWidget {
                       ),
                       const SizedBox(height: 12),
                       TextField(
-                        obscureText: true,
+                        controller: logic.passwordController,
+                        obscureText: logic.isHidePassword,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.white,
-                          hintText: 'Password',
+                          hintText: 'password',
                           prefixIcon: const Icon(Icons.lock),
-                          suffixIcon: const Icon(Icons.visibility_off),
+                          suffix: InkWell(
+                            onTap: () {
+                              logic.isHidePassword = !logic.isHidePassword;
+                              setState(() {});
+                            },
+                            child: Icon(
+                              logic.isHidePassword
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                            ),
+                          ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide.none,
@@ -106,7 +131,7 @@ class LoginPage extends StatelessWidget {
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () => logic.login(),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFFFCCB3C),
                             padding: const EdgeInsets.symmetric(vertical: 14),
