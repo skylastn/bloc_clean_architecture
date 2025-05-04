@@ -1,4 +1,4 @@
-# 📦 Flutter BLoC Clean Architecture (DDD)
+# 📦 Flutter Cubit(BLOC) Clean Architecture (DDD)
 
 This repository demonstrates a scalable and testable Flutter project using **Clean Architecture** principles with **Domain-Driven Design (DDD)**, and **BLoC (Business Logic Component)** for state management. It's structured to promote separation of concerns, maintainability, and flexibility in application development.
 
@@ -6,17 +6,19 @@ This repository demonstrates a scalable and testable Flutter project using **Cle
 
 This project follows a layered architecture with clear separation of concerns:
 
+```
 lib/
-├── core/ # Shared utilities (e.g., failure, use case base, constants)
-├── features/ # Each app feature grouped by domain
-│ └── feature_name/
-│ ├── domain/ # Entities, repositories (abstract), use cases
-│ ├── data/ # Models, data sources, repository implementations
-│ └── presentation/
-│ ├── bloc/ # BLoC for state management
-│ └── pages/ # UI Widgets
-├── injection_container.dart # Dependency injection setup (using get_it)
-└── main.dart # Application entry point
+├── core/                      # Shared utilities (e.g., failure, use case base, constants)
+├── features/                  # Each app feature grouped by domain
+│   └── feature_name/
+│       ├── domain/            # Entities, repositories (abstract), use cases
+│       ├── data/              # Models, data sources, repository implementations
+│       └── presentation/
+│           ├── bloc/          # BLoC for state management
+│           └── pages/         # UI Widgets
+├── injection_container.dart   # Dependency injection setup (using get_it)
+└── main.dart                  # Application entry point
+```
 
 ## ⚙️ Teknologi & Paket yang Digunakan
 
@@ -80,6 +82,7 @@ This architecture supports proper unit testing at all levels:
 📂 Feature Module Example
 Here’s a sample layout for a feature named auth:
 
+```
 features/
 └── auth/
 ├── domain/
@@ -93,6 +96,7 @@ features/
 └── presentation/
 ├── bloc/
 └── pages/
+```
 
 🤝 Contributions
 Contributions are welcome! Feel free to fork the repository and open a pull request. For major changes, please open an issue first to discuss what you would like to change.
