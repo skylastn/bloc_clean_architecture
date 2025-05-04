@@ -27,7 +27,7 @@ class _SplashPageState extends State<SplashPage> {
   Future<void> init() async {
     bool result = await _authLogic.checkAuth();
     if (result) {
-      await _authLogic.initAfterLogin();
+      // await _authLogic.initAfterLogin();
       Navigation.pushReplacementNamed(DashboardPage.routeName);
       return;
     }

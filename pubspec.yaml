@@ -37,6 +37,8 @@ dependencies:
   cached_network_image: ^3.4.1
   universal_html: ^2.2.4
   lottie: ^3.3.1
+  adaptive_sidebar: ^0.7.0
+  data_table_2: ^2.6.0
 
   # Utility
   intl: ^0.20.2

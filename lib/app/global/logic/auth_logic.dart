@@ -15,12 +15,17 @@ abstract class AuthState {}
 
 class AuthStateUnauthenticated extends AuthState {}
 
-class AuthStateAuthenticated extends AuthState {}
+class AuthStateAuthenticated extends AuthState {
+  final UserResponse? user;
+  final List<NavigationResponse> navigation;
+
+  AuthStateAuthenticated(this.user, this.navigation);
+}
 
 class AuthLogic extends Cubit<AuthState> {
   final localLogic = inject.get<LocalSession>();
   final _services = AuthService();
-  late UserResponse user;
+  UserResponse? user;
   List<NavigationResponse> navigation = [];
   AuthLogic(super.initialState);
 
@@ -42,12 +47,15 @@ class AuthLogic extends Cubit<AuthState> {
   Future<void> initAfterLogin() async {
     await getUser();
     await getNavigationUser();
+    // log('user 2 : ${user?.name}');
+    emit(AuthStateAuthenticated(user, navigation));
   }
 
   Future<void> getUser() async {
     var result = await _services.getUserProfile();
     result.fold((l) => null, (r) {
       // emit(AuthStateAuthenticated(r));
+      // log('user 1 : ${user?.toJson()}');
       user = r;
     });
   }

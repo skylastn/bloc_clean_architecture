@@ -10,11 +10,13 @@ class FoodAppTheme {
 
   static ThemeData getThemeData() {
     return ThemeData(
+      // brightness: Brightness.light, // <- ini penting
       fontFamily: "Metropolis",
       appBarTheme: const AppBarTheme(
         backgroundColor: FoodAppColorTheme.primary,
         foregroundColor: FoodAppColorTheme.secondary,
       ),
+      scaffoldBackgroundColor: Colors.white,
       primarySwatch: Colors.red,
       elevatedButtonTheme: FoodAppElevatedButtonThemeData(),
       textButtonTheme: FoodAppTextButtonThemeData(),

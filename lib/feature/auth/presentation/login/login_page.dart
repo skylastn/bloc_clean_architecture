@@ -22,10 +22,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void initState() {
-    if (kDebugMode) {
-      logic.usernameController.text = 'admin@email.com';
-      logic.passwordController.text = 'admin123';
-    }
+    logic.init();
     super.initState();
   }
 

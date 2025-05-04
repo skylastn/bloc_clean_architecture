@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:kiosk_bo/app/global/logic/auth_logic.dart';
 import 'package:kiosk_bo/app/global/logic/local_session.dart';
@@ -48,6 +49,13 @@ class LoginLogic {
       } else {
         Toast.showInfo(message: 'error : ${e.toString()}');
       }
+    }
+  }
+
+  void init() {
+    if (kDebugMode) {
+      usernameController.text = 'nyahtengah@gmail.com';
+      passwordController.text = '000000';
     }
   }
 }

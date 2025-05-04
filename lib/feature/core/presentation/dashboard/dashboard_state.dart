@@ -1,4 +1,7 @@
 // Define the states
+import 'package:adaptive_sidebar/adaptive_sidebar.dart';
+import 'package:flutter/material.dart';
+
 abstract class DashboardState {}
 
 class DashboardInitial extends DashboardState {}
@@ -7,8 +10,8 @@ class DashboardLoading extends DashboardState {}
 
 class DashboardLoaded extends DashboardState {
   final int index;
-
-  DashboardLoaded({required this.index});
+  List<SidebarDestination> listNavbar;
+  DashboardLoaded({required this.index, required this.listNavbar});
 }
 
 class DashboardError extends DashboardState {
@@ -17,7 +20,8 @@ class DashboardError extends DashboardState {
 }
 
 enum TabType {
-  order('order');
+  order('order'),
+  unknown('unknown');
 
   final String name;
   const TabType(this.name);
@@ -27,7 +31,16 @@ enum TabType {
       case 'order':
         return TabType.order;
       default:
-        return TabType.order;
+        return TabType.unknown;
+    }
+  }
+
+  IconData? get getIcon {
+    switch (this) {
+      case TabType.order:
+        return Icons.local_shipping;
+      default:
+        return null;
     }
   }
 }

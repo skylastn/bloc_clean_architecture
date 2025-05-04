@@ -1,11 +1,11 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:kiosk_bo/feature/auth/infrastructure/model/request/auth_request.dart';
 import 'package:kiosk_bo/feature/auth/infrastructure/model/response/auth_response.dart';
 import 'package:kiosk_bo/feature/auth/infrastructure/model/response/user_response.dart';
 import 'package:kiosk_bo/feature/core/infrastructure/model/response/navigation_response.dart';
-import 'package:kiosk_bo/shared/utils/navigation.dart';
 
 import '../../../../app/common/exception.dart';
 import '../../../../app/network/api_provider.dart';
@@ -47,8 +47,9 @@ class AuthRemoteDataSource {
     try {
       var response = await _apiProvider.getApi(EndpointPath.userProfile);
       if (!response.isError) {
+        log('test response : ${response.result?.body}');
         return Right(
-          UserResponse.fromJson(jsonDecode(response.result?.body ?? '')),
+          UserResponse.fromMap(jsonDecode(response.result?.body ?? '')),
         );
       }
       return Left(
