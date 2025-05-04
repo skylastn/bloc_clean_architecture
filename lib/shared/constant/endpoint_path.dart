@@ -4,4 +4,8 @@ class EndpointPath {
 
   // User
   static const String userProfile = 'user/profile';
+  static const String navigationUser = 'navigation/user';
+
+  // Order
+  static const String order = 'order';
 }

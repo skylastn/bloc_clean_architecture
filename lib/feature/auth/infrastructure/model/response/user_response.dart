@@ -21,7 +21,7 @@ class UserResponse {
   String? tenantId;
   String? tenantName;
   bool? status;
-  String? cityId;
+  int? cityId;
   String? cityName;
   String? virtualAccount;
   String? deviceToken;
@@ -100,7 +100,7 @@ class UserResponse {
     String? tenantId,
     String? tenantName,
     bool? status,
-    String? cityId,
+    int? cityId,
     String? cityName,
     String? virtualAccount,
     String? deviceToken,

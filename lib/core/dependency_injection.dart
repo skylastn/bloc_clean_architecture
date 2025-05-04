@@ -15,6 +15,7 @@ class DenpendencyInjection {
     try {
       // Get.put(LocalController());
       inject.registerSingleton<GlobalLogic>(GlobalLogic());
+      inject.registerLazySingleton<GoRouter>(() => router);
     } catch (e) {
       log('error Init Dependency $e');
     }
@@ -42,12 +43,13 @@ class DenpendencyInjection {
 
   static void registerDependencies() {
     // inject.registerLazySingleton<QueueCubit>(() => QueueCubit());
-    inject.registerLazySingleton<GoRouter>(() => router);
-
     // Provider
     inject.registerFactory<ApiProvider>(() => ApiProvider());
 
     // Repository
     inject.registerFactory<AuthRepository>(() => AuthRepository());
+
+    // Logic
+    inject.registerSingleton<AuthLogic>(AuthLogic(AuthStateUnauthenticated()));
   }
 }

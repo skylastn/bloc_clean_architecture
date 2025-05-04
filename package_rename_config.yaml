@@ -1,0 +1,32 @@
+package_rename_config:
+  android:
+    app_name: Opet Order # (String) The display name of the android app
+    package_name: com.company.opet.order # (String) The package name of the android app
+    override_old_package: com.example.kiosk_bo
+    lang: # (Optional) (String) The android development language {kotlin(default) or java}
+
+  ios:
+    app_name: Opet Order # (String) The display name of the ios app
+    bundle_name: Opet Order # (String) The bundle name of the ios app
+    package_name: com.company.opet.order # (String) The product bundle identifier of the ios app
+
+  linux:
+    app_name: Opet Order # (String) The window title of the linux app
+    package_name: com.company.opet.order # (String) The application id of the linux app
+    exe_name: Opet_Order # (String) The executable name (binary name) of the linux app
+
+  macos:
+    app_name: Opet Order # (String) The product name of the macos app
+    package_name: com.company.opet.order # (String) The product bundle identifier of the macos app
+    copyright_notice: CV Anugerah Bersama # (String) The product copyright of the macos app
+
+  web:
+    app_name: Opet Order # (String) The title of the web app and PWA
+    short_app_name: Opet Order # (String) The short display name of the PWA (Optional, defaults to app_name if not set)
+    description: Opet Order # (String) The description of the web app and PWA
+
+  windows:
+    app_name: Opet Order # (String) The window title & software name of the windows app
+    organization: CV Anugerah Bersama # (String) The organization name (company name) of the windows app
+    copyright_notice: CV Anugerah Bersama # (String) The legal copyright of the windows app
+    exe_name: Opet_Order # (String) The executable name (binary name) of the windows app

@@ -1,11 +1,11 @@
 {
-    "name": "kiosk_bo",
-    "short_name": "kiosk_bo",
+    "name": "Opet Order",
+    "short_name": "Opet Order",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Opet Order",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

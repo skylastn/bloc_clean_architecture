@@ -1,0 +1,32 @@
+app:
+  android:
+    flavorDimensions: "flavor-type"
+
+flavors:
+  development:
+    app:
+      name: "Opet Order Dev"
+
+    android:
+      applicationId: "com.company.opet.order.dev"
+      icon: "assets/images/logo.png"
+    ios:
+      bundleId: "com.company.opet.order.dev"
+      icon: "assets/images/logo.png"
+    macos:
+      bundleId: "com.company.opet.order.dev"
+      icon: "assets/images/logo.png"
+
+  production:
+    app:
+      name: "Opet Order"
+
+    android:
+      applicationId: "com.company.opet.order"
+      icon: "assets/images/logo.png"
+    ios:
+      bundleId: "com.company.opet.order"
+      icon: "assets/images/logo.png"
+    macos:
+      bundleId: "com.company.opet.order"
+      icon: "assets/images/logo.png"

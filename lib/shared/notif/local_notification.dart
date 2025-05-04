@@ -94,11 +94,11 @@ class LocalNotification {
       showNotification(message);
       notificationHandler(message);
     });
-    initSubscribtionToTopic();
+    await initSubscribtionToTopic();
   }
 
   void notificationHandler(RemoteMessage? value) {
-    if(value == null){
+    if (value == null) {
       return;
     }
     var content = NotificationResponse.fromMap(value.data);
@@ -124,24 +124,22 @@ class LocalNotification {
     }
   }
 
-  void initSubscribtionToTopic() {
-    if (!kIsWeb && (inject.get<LocalSession>().userId ?? '').isNotEmpty) {
-      FirebaseMessaging.instance.subscribeToTopic(
-        inject.get<LocalSession>().userId!,
-      );
+  Future<void> initSubscribtionToTopic() async {
+    String userId = await inject.get<LocalSession>().userId ?? '';
+    if (!kIsWeb && userId.isNotEmpty) {
+      FirebaseMessaging.instance.subscribeToTopic(userId);
     }
   }
 
-  void unSubscribeTopic() {
-    if (!kIsWeb && (inject.get<LocalSession>().userId ?? '').isNotEmpty) {
-      FirebaseMessaging.instance.unsubscribeFromTopic(
-        inject.get<LocalSession>().userId!,
-      );
+  Future<void> unSubscribeTopic() async {
+    String userId = await inject.get<LocalSession>().userId ?? '';
+    if (!kIsWeb && userId.isNotEmpty) {
+      FirebaseMessaging.instance.unsubscribeFromTopic(userId);
     }
   }
 
   void showNotification(RemoteMessage? message) {
-    if(message == null){
+    if (message == null) {
       return;
     }
     createNotification(

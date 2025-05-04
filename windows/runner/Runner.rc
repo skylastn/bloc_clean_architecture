@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "kiosk_bo" "\0"
+            VALUE "CompanyName", "CV Anugerah Bersama" "\0"
+            VALUE "FileDescription", "Opet Order" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "kiosk_bo" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2025 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "kiosk_bo.exe" "\0"
-            VALUE "ProductName", "kiosk_bo" "\0"
+            VALUE "InternalName", "Opet Order" "\0"
+            VALUE "LegalCopyright", "CV Anugerah Bersama" "\0"
+            VALUE "OriginalFilename", "Opet_Order.exe" "\0"
+            VALUE "ProductName", "Opet Order" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

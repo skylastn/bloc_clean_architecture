@@ -2,13 +2,13 @@ name: kiosk_bo
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 version: 1.0.0+1
 
 environment:
   sdk: ^3.7.2
-  
+
 dependencies:
   flutter:
     sdk: flutter
@@ -19,7 +19,8 @@ dependencies:
   get_it: ^8.0.3
 
   # Database
-  shared_preferences: ^2.5.3
+  # shared_preferences: ^2.5.3
+  flutter_secure_storage: ^9.2.4
 
   #Google
   firebase_core: ^3.13.0
@@ -35,6 +36,9 @@ dependencies:
   cupertino_icons: ^1.0.8
   cached_network_image: ^3.4.1
   universal_html: ^2.2.4
+  lottie: ^3.3.1
+  adaptive_sidebar: ^0.7.0
+  data_table_2: ^2.6.0
 
   # Utility
   intl: ^0.20.2
@@ -48,20 +52,21 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_flavorizr: ^2.2.3
+  flutter_flavorizr: ^2.4.0
   flutter_lints: ^5.0.0
   icons_launcher: ^3.0.0
+  package_rename: ^1.10.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
 flutter:
-
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/animation/
     - assets/images/
     - assets/kiosk/
     - assets/icons/
