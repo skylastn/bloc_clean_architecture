@@ -45,7 +45,7 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     return GlobalScreen(
       body: Center(
-        child: Image.asset('assets/kiosk/mascot.png', fit: BoxFit.contain),
+        child: Image.asset('assets/images/im_logo.png', fit: BoxFit.contain),
       ),
     );
   }

@@ -5,10 +5,10 @@
 // 'flutter create' template.
 
 // The application's name. By default this is also the title of the Flutter window.
-PRODUCT_NAME = Test Apps
+PRODUCT_NAME = kiosk_bo
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.sahid.test
+PRODUCT_BUNDLE_IDENTIFIER = com.sahid.kioskBo
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Apps
+PRODUCT_COPYRIGHT = Copyright © 2025 com.sahid. All rights reserved.

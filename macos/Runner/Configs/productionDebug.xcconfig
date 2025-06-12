@@ -1,6 +1,0 @@
-#include "../../Flutter/productionDebug.xcconfig"
-#include "Warnings.xcconfig"
-
-ASSET_PREFIX=production
-BUNDLE_NAME=Opet Order
-BUNDLE_DISPLAY_NAME=Opet Order

@@ -54,8 +54,8 @@ class LoginLogic {
 
   void init() {
     if (kDebugMode) {
-      usernameController.text = 'nyahtengah@gmail.com';
-      passwordController.text = '000000';
+      usernameController.text = '';
+      passwordController.text = '';
     }
   }
 }
