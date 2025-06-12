@@ -1,12 +1,9 @@
 import 'dart:convert';
 import 'dart:developer';
-import 'dart:io';
 
-import 'package:firebase_messaging/firebase_messaging.dart';
+// import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import '../../../core/env.dart';
-import 'package:universal_html/html.dart' as html;
 
 import '../../../feature/core/infrastructure/model/request/cart_request.dart';
 import '../model/token_model.dart';
@@ -96,37 +93,37 @@ class LocalSession {
     return await pref.read(key: 'fcmToken') ?? '';
   }
 
-  Future<String> initFcmToken() async {
-    try {
-      if (!kIsWeb &&
-          (Platform.isWindows || Platform.isFuchsia || Platform.isLinux)) {
-        return '';
-      }
-      NotificationSettings settings =
-          await FirebaseMessaging.instance.requestPermission();
-      log('notification : ${settings.authorizationStatus.name}');
+  // Future<String> initFcmToken() async {
+  //   try {
+  //     if (!kIsWeb &&
+  //         (Platform.isWindows || Platform.isFuchsia || Platform.isLinux)) {
+  //       return '';
+  //     }
+  //     NotificationSettings settings =
+  //         await FirebaseMessaging.instance.requestPermission();
+  //     log('notification : ${settings.authorizationStatus.name}');
 
-      String temp = await getFcmToken ?? '';
-      if (temp.isEmpty) {
-        log(Env.value.vapidKey);
-        temp =
-            await FirebaseMessaging.instance.getToken(
-              vapidKey: (kIsWeb) ? Env.value.vapidKey : null,
-            ) ??
-            '';
-        saveFcmToken(temp);
-      }
-      log('Token Fcm : $temp');
-      return temp;
-    } catch (e) {
-      log('error init Fcm Token : $e');
-      if (kIsWeb && kDebugMode) {
-        await Future.delayed(const Duration(seconds: 1));
-        html.window.location.reload();
-      }
-      return '';
-    }
-  }
+  //     String temp = await getFcmToken ?? '';
+  //     if (temp.isEmpty) {
+  //       log(Env.value.vapidKey);
+  //       temp =
+  //           await FirebaseMessaging.instance.getToken(
+  //             vapidKey: (kIsWeb) ? Env.value.vapidKey : null,
+  //           ) ??
+  //           '';
+  //       saveFcmToken(temp);
+  //     }
+  //     log('Token Fcm : $temp');
+  //     return temp;
+  //   } catch (e) {
+  //     log('error init Fcm Token : $e');
+  //     if (kIsWeb && kDebugMode) {
+  //       await Future.delayed(const Duration(seconds: 1));
+  //       html.window.location.reload();
+  //     }
+  //     return '';
+  //   }
+  // }
 
   Future<void> saveIdNotif(int value) async {
     await pref.write(key: 'idNotif', value: value.toString());

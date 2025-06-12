@@ -4,7 +4,7 @@ icons_launcher:
     android:
       enable: true
       image_path: "assets/images/im_logo.png"
-      notification_image: "assets/kiosk/logo-opet-b.png"
+      notification_image: "assets/images/im_notification.jpg"
       adaptive_background_color: "#FB6E3B"
       adaptive_foreground_image: "assets/images/im_logo.png"
       adaptive_round_image: "assets/images/im_logo.png"

@@ -9,7 +9,6 @@ import 'package:kiosk_bo/shared/notif/local_notification.dart';
 import '../app/global/logic/local_session.dart';
 import 'app_component.dart';
 import 'dependency_injection.dart';
-import 'firebase_traits.dart';
 
 enum EnvType { development, production }
 
@@ -66,7 +65,7 @@ class Env {
         ),
       );
     }
-    await FirebaseTraits().init();
+    // await FirebaseTraits().init();
     await LocalNotification().init();
     await DenpendencyInjection.init();
     DenpendencyInjection.registerDependencies();

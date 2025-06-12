@@ -5,10 +5,10 @@
 // 'flutter create' template.
 
 // The application's name. By default this is also the title of the Flutter window.
-PRODUCT_NAME = Opet Order
+PRODUCT_NAME = Test Apps
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.company.opet.order
+PRODUCT_BUNDLE_IDENTIFIER = com.sahid.test
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = CV Anugerah Bersama
+PRODUCT_COPYRIGHT = Apps

@@ -337,11 +337,11 @@ class ApiProvider {
     };
   }
 
-  headerNormal() {
+  Map<String, String>? headerNormal() {
     return {'Content-Type': 'application/json', 'Accept': 'application/json'};
   }
 
-  headerFCM() {
+  Map<String, String>? headerFCM() {
     return {
       // 'Authorization': 'key=$apiKeyFcm',
       'Content-Type': 'application/json',
@@ -349,7 +349,7 @@ class ApiProvider {
     };
   }
 
-  headerImage() async {
+  Future<Map<String, String>?> headerImage() async {
     return {
       'Authorization': 'Bearer ${(await localSession.tokenModel)?.token}',
       // 'Content-Type': 'application/json',
@@ -364,6 +364,6 @@ class ApiProvider {
     if (choice == 2) {
       return headerFCM();
     }
-    return null;
+    return headerLogin();
   }
 }

@@ -1,11 +1,11 @@
 {
-    "name": "Opet Order",
-    "short_name": "Opet Order",
+    "name": "Test Apps",
+    "short_name": "Test Apps",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Opet Order",
+    "description": "Test Apps",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

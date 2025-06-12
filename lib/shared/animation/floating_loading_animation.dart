@@ -41,7 +41,7 @@ class _FloatingLoadingAnimationState extends State<FloatingLoadingAnimation>
     return Center(
       child: AnimatedBuilder(
         animation: _controller,
-        builder: (_, __) {
+        builder: (_, _) {
           final angle = _controller.value * 2 * pi;
           return Stack(
             alignment: Alignment.center,

@@ -9,12 +9,12 @@ class GlobalLogic {
     initFirstTime();
   }
 
-  initFirstTime() async {
+  Future<void> initFirstTime() async {
     await initData();
   }
 
-  initData() async {
-    localCtrl.initFcmToken().then((value) => fcmToken = value);
+  Future<void> initData() async {
+    // localCtrl.initFcmToken().then((value) => fcmToken = value);
     await Future.delayed(const Duration(seconds: 1));
     // log(Get.currentRoute);
   }
